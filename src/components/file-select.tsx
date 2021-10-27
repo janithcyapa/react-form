@@ -26,7 +26,7 @@ export const File = ({
   return (
     <>
       {label !== false && <Label label={label || auto_id || ""} id={id_gen} />}
-      <div className={className + " form-img"}>
+      <div className={className + " form-file"}>
         <div
           onClick={() => fileInput.current?.click()}
           className="group relative w-full h-full cursor-pointer select-none flex flex-col items-center justify-center text-black"
@@ -51,9 +51,8 @@ export const File = ({
             }}
           />
         </div>
-
-        <ErrorHint alert={alert} error={error} />
       </div>
+      <ErrorHint alert={alert} error={error} />
     </>
   );
 };

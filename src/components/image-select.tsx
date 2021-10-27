@@ -57,9 +57,8 @@ export const Image = ({
             />
           </div>
         </div>
-
-        <ErrorHint alert={alert} error={error} />
       </div>
+      <ErrorHint alert={alert} error={error} />
     </>
   );
 };
