@@ -6,7 +6,7 @@ import FormInputProps, { value, validate } from "../types";
 interface ISomeObject {
   [key: string]: any;
 }
-function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
+export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
   const [data, setData] = useState<ISomeObject>({});
   const [loading, setLoading] = useState(false);
   const [init, setInit] = useState<ISomeObject>({});
@@ -94,5 +94,3 @@ function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     setInit,
   };
 }
-
-export default useForm;

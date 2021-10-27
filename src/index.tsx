@@ -5,8 +5,9 @@ import { TextArea } from "./components/text-area";
 import { Input } from "./components/text-input";
 import { Image } from "./components/image-select";
 import { File } from "./components/file-select";
-export * from "./hook/useForm";
-const Form = {
+import { useForm } from "./hook/useForm";
+export * as useForm from "./hook/useForm";
+export const Form = {
   Label,
   Input,
   Select,
@@ -15,6 +16,7 @@ const Form = {
   File,
   Submit,
   Reset,
+  useForm,
 };
 
 export default Form;

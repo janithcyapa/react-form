@@ -64,7 +64,7 @@ duM="$(($duration/60))"
 duS="$(($duration%60))"
 echo "${c2}Process complete${c0}"
 echo "$duM minutes and $duS seconds elapsed."
-echo "${c2}PACKAGE PUBLISH SUCCESSFULL v$VERSION${c0}"
+echo "${c2}PACKAGE PUBLISH SUCCESSFULL v$(sed 's/.*"version": "\(.*\)".*/\1/;t;d' ./package.json)"
 echo ""
 
 echo ""
