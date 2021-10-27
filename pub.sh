@@ -31,7 +31,7 @@ echo ""
 
 # CURRENT_VERSION=$(npm version)
 sed 's/.*"version": "\(.*\)".*/\1/;t;d' ./package.json
-echo "current version v$CURRENT_VERSION"
+echo "current version v$sed 's/.*"version": "\(.*\)".*/\1/;t;d' ./package.json"
 echo "${c4}New version? ${c0}"
 echo "ex: <newversion> | major | minor | patch "
 read VERSION
