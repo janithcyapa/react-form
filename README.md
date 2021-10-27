@@ -70,6 +70,9 @@ function App() {
   @apply text-gray-700 bg-gray-100;
   @apply border-2  focus:border-gray-500 hover:border-gray-300;
 }
+.form-img {
+  @apply overflow-hidden w-full h-96 my-8 bg-gray-200 rounded-xl;
+}
 .form-label {
   @apply text-gray-400 m-2;
 }

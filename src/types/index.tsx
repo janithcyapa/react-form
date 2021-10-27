@@ -1,3 +1,6 @@
+import Joi from "joi";
+export type value = string | number | File | undefined;
+export type validate = Joi.StringSchema | Joi.NumberSchema;
 export interface FormInputProps {
   auto_id?: string;
   id?: string;
@@ -8,8 +11,8 @@ export interface FormInputProps {
   label?: string | false;
   className?: string;
   value?: string | number;
-  onChange?: (data: string | number, id: string) => unknown;
-  onBlur?: (data: string | number, id: string) => unknown;
+  onChange?: (data: value, id: string) => unknown;
+  onBlur?: (data: value, id: string) => unknown;
   type?: string;
   alert?: string;
   error?: string;

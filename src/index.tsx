@@ -1,9 +1,10 @@
 import { Reset, Submit } from "./helpers/button";
 import { Label } from "./helpers/label";
-import { Select } from "./input/select-input";
-import { TextArea } from "./input/text-area";
-import { Input } from "./input/text-input";
-import { Image } from "./input/image-select";
+import { Select } from "./components/select-input";
+import { TextArea } from "./components/text-area";
+import { Input } from "./components/text-input";
+import { Image } from "./components/image-select";
+import useForm from "./hook/useForm";
 const Form = {
   Label,
   Input,
@@ -12,6 +13,10 @@ const Form = {
   Image,
   Submit,
   Reset,
+  useForm,
 };
 
+module.exports = {
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
+};
 export default Form;
