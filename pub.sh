@@ -26,7 +26,12 @@ echo "${c6}Initializing...${c0}"
 echo ""
 
 git add .
-git commit -m "refactor: processing publish"
+echo "${c4}What are the changes? ${c0}"
+echo "ex: refactor: processing publish "
+read MSG
+echo ""
+
+git commit -m "$MSG"
 echo ""
 
 
@@ -45,8 +50,7 @@ echo ""
 echo "${c6}Publishing Package${c0}"
 npm publish
 echo ""
-echo "${c2}PACKAGE PUBLISH SUCCESSFULL${c0}"
-echo ""
+
 
 echo "${c6}Finalizing...${c0}"
 git add .
@@ -60,7 +64,8 @@ duM="$(($duration/60))"
 duS="$(($duration%60))"
 echo "${c2}Process complete${c0}"
 echo "$duM minutes and $duS seconds elapsed."
-
+echo "${c2}PACKAGE PUBLISH SUCCESSFULL v$VERSION${c0}"
+echo ""
 
 echo ""
 echo "${c1}exit${c0}"
