@@ -41,7 +41,6 @@ export const File = ({
             ref={fileInput}
             type="file"
             className="hidden"
-            accept="image/*"
             id={id_gen}
             name={name || id_gen}
             placeholder={placeholder || "Enter " + auto_id || ""}
