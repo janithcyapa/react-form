@@ -21,17 +21,17 @@ export const TextArea = ({
   const id_gen = auto_id ? auto_id.replace(/\s/g, "").toLowerCase() : null;
   return (
     <div className={className}>
-      {label !== false && <Label label={label || auto_id || ""} id={id_gen || id || ""} />}
+      {label !== false && <Label label={label || auto_id || ""} id={id || id_gen || ""} />}
       <textarea
         {...rest}
         id={id || id_gen || ""}
-        name={name || auto_id || id || ""}
+        name={name || id || auto_id || ""}
         placeholder={placeholder || "Enter " + auto_id || ""}
-        autoComplete={autocomplete || id_gen || id || ""}
+        autoComplete={autocomplete || id || id_gen || ""}
         value={value}
         onBlur={(e) => onBlur && onBlur(e.target.value, id || id_gen || "")}
         onChange={(e) => onChange && onChange(e.target.value, id || id_gen || "")}
-        className="bg-gray-100 w-full px-2 py-2  rounded-md text-base text-gray-800  border-2 border-gray-200 focus:border-blue-600 focus:bg-blue-50 outline-none"
+        className="form-text-area"
       />
       <ErrorHint alert={alert} error={error} />
     </div>

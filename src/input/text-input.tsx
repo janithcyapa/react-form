@@ -25,6 +25,7 @@ export const Input = ({
     <div className={className}>
       {label !== false && <Label label={label || auto_id || ""} id={id_gen || id || ""} />}
       <input
+        className="form-input"
         disabled={disabled}
         {...rest}
         id={id || id_gen || ""}

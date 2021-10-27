@@ -34,7 +34,7 @@ export const Select = ({
         defaultValue={def_option && def_option.value}
         onBlur={(e) => onBlur && onBlur(e.target.value, id || id_gen || "")}
         onChange={(e) => onChange && onChange(e.target.value, id || id_gen || "")}
-        className="bg-gray-100 w-full px-2 py-2  rounded-md text-base text-gray-800  border-2 border-gray-200 focus:border-blue-600 focus:bg-blue-50 outline-none"
+        className="form-select"
       >
         <>
           {def_option && <option value={def_option.value}>{def_option.display}</option>}

@@ -21,9 +21,9 @@
 
     yarn add react-ez-useform
 
-## Links
+<!-- ## Links
 
-- [Get started](https://react-ez-useform.com/get-started)
+- [Get started](https://react-ez-useform.com/get-started) -->
 
 ## Quickstart
 
@@ -41,5 +41,42 @@ function App() {
         <Form.Submit loading={loading} label="Save" />
       </form>
   );
+}
+```
+
+## Styling
+
+```css
+.form-input {
+  @apply px-4 py-1.5 rounded cursor-pointer w-full;
+  @apply text-gray-700 bg-gray-100;
+  @apply border-2  focus:border-gray-500 hover:border-gray-300;
+}
+.form-text-area {
+  @apply px-4 py-1.5 rounded cursor-pointer w-full;
+  @apply text-gray-700 bg-gray-100;
+  @apply border-2  focus:border-gray-500 hover:border-gray-300;
+}
+.form-select {
+  @apply px-4 py-1.5 rounded cursor-pointer w-full;
+  @apply text-gray-700 bg-gray-100;
+  @apply border-2  focus:border-gray-500 hover:border-gray-300;
+}
+.form-label {
+  @apply text-gray-400 m-2;
+}
+.form-error {
+  @apply mx-4 text-sm text-red-400 italic mt-0.5;
+}
+.form-hint {
+  @apply mx-4 text-sm text-gray-400 italic mt-0.5;
+}
+.form-submit {
+  @apply bg-primary text-white font-semibold rounded-lg px-6 py-2.5;
+  @apply transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md;
+}
+.form-reset {
+  @apply text-sm text-primary font-light px-6 py-1;
+  @apply transition duration-300 ease-in-out transform hover:scale-105 hover:underline;
 }
 ```

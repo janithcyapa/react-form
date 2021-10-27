@@ -29,7 +29,6 @@ export interface LabelProps {
 }
 
 export interface ButtonProps {
-  button_type?: "flat" | "outline";
   label?: string;
   className?: string;
   loading?: boolean;
