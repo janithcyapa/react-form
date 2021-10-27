@@ -73,10 +73,9 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
   // ON SUBMIT
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
     var err = null;
-    Object.keys(error)?.forEach((key) => {
+    Object.keys(data)?.forEach((key) => {
       if (validators[key]) onBlur(data[key], key, validators[key]);
     });
     Object.keys(error)?.forEach((key) => {
@@ -84,9 +83,11 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
         err = "error found";
       }
     });
-    if (err === null) await onSubmitFunc(data, error);
-
-    setLoading(false);
+    if (err === null) {
+      setLoading(true);
+      await onSubmitFunc(data, error);
+      setLoading(false);
+    }
   };
 
   return {
