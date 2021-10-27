@@ -29,8 +29,8 @@ git add .
 git commit -m "refactor: processing publish"
 echo ""
 
-CURRENT_VERSION=$(npm -v)
-echo "current version v$CURRENT_VERSION"
+CURRENT_VERSION=$(npm version)
+echo "current version v$CURRENT_VERSION['react-ez-useform']"
 echo "${c4}New version? ${c0}"
 echo "ex: <newversion> | major | minor | patch "
 read VERSION
