@@ -1,6 +1,6 @@
 import Joi from "joi";
 export type value = string | number | File | undefined;
-export type validate = Joi.AnySchema;
+export type validate = Joi.AnySchema | Joi.ObjectSchema<any>;
 export interface FormInputProps {
   auto_id?: string;
   id?: string;
