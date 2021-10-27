@@ -10,7 +10,7 @@ export default [
       file: "dist/index.es.js",
       format: "es",
     },
-    external: ["react", "react-icons/cg", "react-icons/bi"],
+    external: ["react", "react-icons/cg", "react-icons/bi", "lodash"],
     plugins: [typescript(), babel({ extensions: [".ts"] })],
   },
 
@@ -26,9 +26,10 @@ export default [
         react: "React",
         "react-icons/cg": "cg",
         "react-icons/bi": "bi",
+        lodash: "_",
       },
     },
-    external: ["react", "react-icons/cg", "react-icons/bi"],
+    external: ["react", "react-icons/cg", "react-icons/bi", "lodash"],
     plugins: [typescript(), babel({ extensions: [".ts"], exclude: "node_modules/**" }), terser()],
   },
 ];
