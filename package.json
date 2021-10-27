@@ -1,6 +1,6 @@
 {
   "name": "react-ez-useform",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Easy React Form Component",
   "main": "dist/index.umd.min.js",
   "repository": {
