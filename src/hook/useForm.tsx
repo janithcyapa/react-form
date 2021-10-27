@@ -72,7 +72,7 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     setLoading(true);
 
     var err = null;
-    Object.keys(error).forEach((key) => {
+    Object.keys(error)?.forEach((key) => {
       if (error[key] !== null) {
         err = "error found";
       }
