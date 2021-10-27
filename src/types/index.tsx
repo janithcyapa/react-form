@@ -1,5 +1,10 @@
 import Joi from "joi";
-export type value = string | number | File | undefined;
+
+// export interface imageValue {
+//   file?: File;
+//   src?: string;
+// }
+// export type value = imageValue | string | number | File | undefined;
 export type validate = Joi.AnySchema | Joi.ObjectSchema<any>;
 export interface FormInputProps {
   auto_id?: string;
@@ -10,9 +15,9 @@ export interface FormInputProps {
   autocomplete?: string;
   label?: string | false;
   className?: string;
-  value?: string | number;
-  onChange?: (data: value, id: string) => unknown;
-  onBlur?: (data: value, id: string) => unknown;
+  value?: any;
+  onChange?: (data: any, id: string) => unknown;
+  onBlur?: (data: any, id: string) => unknown;
   type?: string;
   alert?: string;
   error?: string;
