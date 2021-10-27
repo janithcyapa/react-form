@@ -28,6 +28,18 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     setInit(temp_init);
     setValidators(temp_validators);
   };
+  // INITIALIZE FUNCTION FOR SET INIT VALUE TO EACH FIELD
+  const reset = (value: any, id: string, validate?: validate) => {
+    const temp_data = _.clone(data);
+    const temp_error = _.clone(error);
+
+    Object.keys(data)?.forEach((key) => {
+      temp_data[key] = init[key];
+      temp_error[key] = null;
+    });
+    setData(temp_data);
+    setError(temp_error);
+  };
 
   // ON CHANGE FUNCTION
   const onChange = (value: any, id: string) => {
@@ -87,15 +99,15 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
         }
       }
     });
-    // Object.keys(error)?.forEach((key) => {
-    //   if (error[key] !== null) {
-    //     err = "error found";
-    //   }
-    // });
     if (err === null) {
-      setLoading(true);
-      await onSubmitFunc(data, error);
-      setLoading(false);
+      try {
+        setLoading(true);
+        await onSubmitFunc(data, error);
+      } catch (error) {
+        throw error;
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -104,6 +116,7 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     error,
     inputProps,
     loading,
+    reset,
     onSubmit,
     setLoading,
     setData,
