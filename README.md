@@ -1,12 +1,18 @@
+<h1 align="center">React UseHook</h1>
 <div align="center">
 
-[![npm downloads](https://img.shields.io/npm/dm/react-ez-useform.svg?style=for-the-badge)](https://www.npmjs.com/package/react-ez-useform)
-[![npm](https://img.shields.io/npm/dt/react-ez-useform.svg?style=for-the-badge)](https://www.npmjs.com/package/react-ez-useform)
-[![npm](https://img.shields.io/npm/l/react-ez-useform?style=for-the-badge)](https://github.com/react-ez-useform/react-ez-useform/blob/master/LICENSE)
+Quickly build [React](https://reactjs.org/) forms. React UseHook is a simple and customizable form component and hook.
 
 </div>
 
-# React Easy useForm Hook v0.0.1
+<div align="center">
+
+[![npm downloads](https://img.shields.io/npm/dm/react-ez-useform.svg)](https://www.npmjs.com/package/react-ez-useform)
+[![npm](https://img.shields.io/npm/dt/react-ez-useform.svg)](https://www.npmjs.com/package/react-ez-useform)
+[![npm](https://img.shields.io/npm/l/react-ez-useform.svg?color=red)](https://github.com/react-ez-useform/react-ez-useform/blob/master/LICENSE)
+[![version](https://img.shields.io/npm/v/react-ez-useform.svg)](https://www.npmjs.com/package/react-ez-useform)
+
+</div>
 
 ## Features
 
@@ -15,15 +21,17 @@
 - Built-in un-styled component library
 - Form Validation with Joi
 
-## Install
+## Installation
 
-    npm install react-ez-useform
+React UseHook is available as an [npm package](https://www.npmjs.com/package/react-ez-useform).
 
-    yarn add react-ez-useform
+```sh
+// with npm
+npm install react-ez-useform
 
-<!-- ## Links
-
-- [Get started](https://react-ez-useform.com/get-started) -->
+// with yarn
+yarn add react-ez-useform
+```
 
 ## Quickstart
 

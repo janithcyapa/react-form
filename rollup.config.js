@@ -10,11 +10,6 @@ export default [
       file: "dist/index.es.js",
       format: "es",
     },
-    globals: {
-      react: "React",
-      "react-icons/cg": "cg",
-      "react-icons/bi": "bi",
-    },
     external: ["react", "react-icons/cg", "react-icons/bi"],
     plugins: [typescript(), babel({ extensions: [".ts"] })],
   },
