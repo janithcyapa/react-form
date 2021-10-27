@@ -1,4 +1,4 @@
-import _, { forEach } from "lodash";
+import _ from "lodash";
 
 import { useState } from "react";
 import FormInputProps, { validate } from "../types";
@@ -76,13 +76,22 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
 
     var err = null;
     Object.keys(data)?.forEach((key) => {
-      if (validators[key]) onBlur(data[key], key, validators[key]);
-    });
-    Object.keys(error)?.forEach((key) => {
-      if (error[key] !== null) {
-        err = "error found";
+      if (validators[key]) {
+        const validation = validators[key].validate(data[key]);
+        const isError = validation.error ? validation.error?.message.replace(`"value" `, "").replace(`failed custom validation because `, "").trim() : null;
+        if (isError) {
+          const temp_error = _.clone(error);
+          temp_error[key] = isError;
+          setError(temp_error);
+          err = isError;
+        }
       }
     });
+    // Object.keys(error)?.forEach((key) => {
+    //   if (error[key] !== null) {
+    //     err = "error found";
+    //   }
+    // });
     if (err === null) {
       setLoading(true);
       await onSubmitFunc(data, error);
