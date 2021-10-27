@@ -11,19 +11,20 @@ c5=`tput setaf 5` # COLOR_MAGENTA
 c6=`tput setaf 6` # COLOR_CYAN
 c7=`tput setaf 7` #  COLOR_WHITE
 c0=`tput sgr0` # COLOR_BLACK
-echo "${c1}text${c0}"
-echo "${c2}text${c0}"
-echo "${c3}text${c0}"
-echo "${c4}text${c0}"
-echo "${c5}text${c0}"
-echo "${c6}text${c0}"
-echo "${c7}text${c0}"
+# echo "${c1}text${c0}"
+# echo "${c2}text${c0}"
+# echo "${c3}text${c0}"
+# echo "${c4}text${c0}"
+# echo "${c5}text${c0}"
+# echo "${c6}text${c0}"
+# echo "${c7}text${c0}"
 
 timeStart="$(date +'%s')"
 
 echo "${c7}NPM Package Publish Script${c0}"
-echo "Initializing ..."
+echo "${c6}Initializing...${c0}"
 echo ""
+
 git add .
 git commit -m "refactor: processing publish"
 echo ""
@@ -44,7 +45,7 @@ echo ""
 echo "${c2}PACKAGE PUBLISH SUCCESSFULL${c0}"
 echo ""
 
-echo "finalizing..."
+echo "${c6}Finalizing...${c0}"
 git add .
 git commit -m "build: publish v$VERSION"
 git push
@@ -56,7 +57,7 @@ duM="$(($duration/60))"
 duS="$(($duration%60))"
 echo "${c2}Process complete${c0}"
 echo "$duM minutes and $duS seconds elapsed."
-echo "${c2}PACKAGE PUBLISH SUCCESSFULL${c0}"
+
 
 echo ""
 echo "${c1}exit${c0}"
