@@ -36,7 +36,7 @@ echo ""
 echo "${c6}Building Package${c0}"
 rollup -c
 echo ""
-echo "${c6}Updating Package Verion${c0}"
+echo "${c6}Updating Package Verion $VERSION ${c0}"
 npm version $VERSION
 echo ""
 echo "${c6}Publishing Package${c0}"
