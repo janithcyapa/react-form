@@ -36,7 +36,6 @@ export const Image = ({
             />
           )}
           <div className="bg-white bg-opacity-30 opacity-0 group-hover:opacity-100 animate text-white absolute bottom-0 left-0 w-full h-1/2 flex flex-col items-center justify-center ">
-            /
             <BiImageAdd size="32" className="" />
             <p className="text-white ">{label || "Add " + auto_id}</p>
             <input
@@ -51,7 +50,10 @@ export const Image = ({
               placeholder={placeholder || "Enter " + auto_id || ""}
               autoComplete={autocomplete || id_gen}
               onBlur={(e) => e.target.files && onBlur && onBlur(e.target.files[0], id_gen)}
-              onChange={(e) => e.target.files && onChange && onChange(e.target.files[0], id_gen)}
+              onChange={(e) => {
+                e.target.files && onBlur && onBlur(e.target.files[0], id_gen);
+                e.target.files && onChange && onChange(e.target.files[0], id_gen);
+              }}
             />
           </div>
         </div>

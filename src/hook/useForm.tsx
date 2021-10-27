@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { forEach } from "lodash";
 
 import { useState } from "react";
 import FormInputProps, { value, validate } from "../types";
@@ -6,7 +6,7 @@ import FormInputProps, { value, validate } from "../types";
 interface ISomeObject {
   [key: string]: any;
 }
-function useForm(onSubmitFunc: (data: any) => Promise<any>) {
+function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
   const [data, setData] = useState<ISomeObject>({});
   const [loading, setLoading] = useState(false);
   const [init, setInit] = useState<ISomeObject>({});
@@ -43,7 +43,6 @@ function useForm(onSubmitFunc: (data: any) => Promise<any>) {
   // PROPS GENERATOR
   const inputProps = (identifier: string, validate?: validate, initial?: value) => {
     const id_gen = identifier.replace(/\s/g, "").toLowerCase();
-
     // INITIALIZE
     if (!init[id_gen]) {
       onInit(initial, id_gen);
@@ -71,21 +70,28 @@ function useForm(onSubmitFunc: (data: any) => Promise<any>) {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await onSubmitFunc(data);
-    } catch (error) {
-      throw error;
-    } finally {
-      setLoading(false);
-    }
+
+    var err = null;
+    Object.keys(error).forEach((key) => {
+      if (error[key] !== null) {
+        err = "error found";
+      }
+    });
+    if (err === null) await onSubmitFunc(data, error);
+
+    setLoading(false);
   };
 
   return {
     data,
+    error,
     inputProps,
     loading,
     onSubmit,
     setLoading,
+    setData,
+    setError,
+    setInit,
   };
 }
 
