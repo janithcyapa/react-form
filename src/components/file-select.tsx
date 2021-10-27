@@ -34,7 +34,7 @@ export const File = ({
             <path d="M20 2H8c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM8 16V4h12l.002 12H8z"></path>
             <path d="M4 8H2v12c0 1.103.897 2 2 2h12v-2H4V8zm11-2h-2v3h-3v2h3v3h2v-3h3V9h-3z"></path>
           </svg>
-          <p className="text-black mt-1">{fileInput.current?.files ? fileInput.current?.files[0].name : label || "Add " + auto_id}</p>
+          <p className="text-black mt-1">{value && value.src ? value.src : label || "Add " + auto_id}</p>
           <input
             disabled={disabled}
             {...rest}
@@ -48,7 +48,15 @@ export const File = ({
             onBlur={(e) => e.target.files && onBlur && onBlur(e.target.files[0], id_gen)}
             onChange={(e) => {
               e.target.files && onBlur && onBlur(e.target.files[0], id_gen);
-              e.target.files && onChange && onChange(e.target.files[0], id_gen);
+              e.target.files &&
+                onChange &&
+                onChange(
+                  {
+                    file: e.target.files[0],
+                    src: e.target.files[0].name,
+                  },
+                  id_gen
+                );
             }}
           />
         </div>
