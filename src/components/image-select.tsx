@@ -24,12 +24,9 @@ export const Image = ({
   const fileInput = useRef<HTMLInputElement>(null);
   const id_gen = id || (auto_id ? auto_id.replace(/\s/g, "").toLowerCase() : "");
   return (
-    <div className={className+" form-img"}>
+    <div className={className + " form-img"}>
       {label !== false && <Label label={label || auto_id || ""} id={id_gen} />}
-      <div
-        onClick={() => fileInput.current?.click()}
-        className="group relative w-full h-full cursor-pointer select-none"
-      >
+      <div onClick={() => fileInput.current?.click()} className="group relative w-full h-full cursor-pointer select-none">
         {(fileInput.current?.files || value) && (
           <img
             src={fileInput.current?.files ? URL.createObjectURL(fileInput.current?.files[0]) : value?.toString()}
@@ -37,7 +34,8 @@ export const Image = ({
             className="w-full h-full object-cover"
           />
         )}
-        <div className="bg-white bg-opacity-30 opacity-0 group-hover:opacity-100 animate text-white absolute bottom-0 left-0 w-full h-1/4 flex flex-col items-center justify-center ">/
+        <div className="bg-white bg-opacity-30 opacity-0 group-hover:opacity-100 animate text-white absolute bottom-0 left-0 w-full h-1/4 flex flex-col items-center justify-center ">
+          /
           <BiImageAdd size="32" className="" />
           <p className="text-white ">{label || "Add " + auto_id}</p>
           <input
@@ -50,9 +48,9 @@ export const Image = ({
             id={id_gen}
             name={name || id_gen}
             placeholder={placeholder || "Enter " + auto_id || ""}
-            autoComplete={autocomplete ||id_gen}
-            onBlur={(e) => onBlur && onBlur(e.target.files[0], id_gen)}
-            onChange={(e) => onChange && onChange(e.target.files[0], id_gen)}
+            autoComplete={autocomplete || id_gen}
+            onBlur={(e) => e.target.files && onBlur && onBlur(e.target.files[0], id_gen)}
+            onChange={(e) => e.target.files && onChange && onChange(e.target.files[0], id_gen)}
           />
         </div>
       </div>
