@@ -16,7 +16,7 @@ const Form = {
   useForm,
 };
 
-module.exports = {
-  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
-};
+// module.exports = {
+//   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
+// };
 export default Form;

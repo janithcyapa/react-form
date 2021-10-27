@@ -29,7 +29,10 @@ git add .
 git commit -m "refactor: processing publish"
 echo ""
 
-echo "${c4}New package version ? ${c0}"
+CURRENT_VERSION=$(npm -v)
+echo "current version v$CURRENT_VERSION"
+echo "${c4}New version? ${c0}"
+echo "ex: <newversion> | major | minor | patch "
 read VERSION
 echo ""
 
