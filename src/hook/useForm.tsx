@@ -10,19 +10,23 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
   const [data, setData] = useState<ISomeObject>({});
   const [loading, setLoading] = useState(false);
   const [init, setInit] = useState<ISomeObject>({});
+  const [validators, setValidators] = useState<ISomeObject>({});
   const [error, setError] = useState<ISomeObject>({});
 
   // INITIALIZE FUNCTION FOR SET INIT VALUE TO EACH FIELD
-  const onInit = (value: any, id: string) => {
+  const onInit = (value: any, id: string, validate?: validate) => {
     const temp_data = _.clone(data);
     const temp_error = _.clone(error);
     const temp_init = _.clone(init);
+    const temp_validators = _.clone(validators);
     temp_data[id] = value;
     temp_error[id] = null;
     temp_init[id] = true;
+    temp_validators[id] = validate;
     setData(temp_data);
     setError(temp_error);
     setInit(temp_init);
+    setValidators(temp_validators);
   };
 
   // ON CHANGE FUNCTION
@@ -45,7 +49,7 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     const id_gen = identifier.replace(/\s/g, "").toLowerCase();
     // INITIALIZE
     if (!init[id_gen]) {
-      onInit(initial, id_gen);
+      onInit(initial, id_gen, validate);
     }
 
     // VALIDATION
@@ -72,6 +76,9 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     setLoading(true);
 
     var err = null;
+    Object.keys(error)?.forEach((key) => {
+      if (validators[key]) onBlur(data[key], key, validators[key]);
+    });
     Object.keys(error)?.forEach((key) => {
       if (error[key] !== null) {
         err = "error found";
