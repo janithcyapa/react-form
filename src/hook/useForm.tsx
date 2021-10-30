@@ -29,12 +29,12 @@ export function useForm(onSubmitFunc: (data: any, error: any) => Promise<any>) {
     setValidators(temp_validators);
   };
   // INITIALIZE FUNCTION FOR SET INIT VALUE TO EACH FIELD
-  const reset = (value: any, id: string, validate?: validate) => {
+  const reset = () => {
     const temp_data = _.clone(data);
     const temp_error = _.clone(error);
 
     Object.keys(data)?.forEach((key) => {
-      temp_data[key] = init[key];
+      temp_data[key] = null;
       temp_error[key] = null;
     });
     setData(temp_data);
